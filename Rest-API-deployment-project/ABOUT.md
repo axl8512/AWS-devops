@@ -9,13 +9,17 @@ Architecture Overview
 Client
   │
   ▼
+  
 Application Load Balancer (ALB)
   │
   ▼
+  
 ECS Fargate Service
   │
   ▼
+  
 Docker Container (Node.js REST API)
+
 Tech Stack
 
 Node.js (Express.js) – REST API development
@@ -36,16 +40,26 @@ AWS CLI – Image push and infrastructure interaction
 
 Project Structure
 rest-api/
+
 │── app.js
+
 │── package.json
+
 │── package-lock.json
+
 │── Dockerfile
+
 │── README.md
+
 REST API Endpoints
 Method	Endpoint	Description
+
 GET	/	API welcome message
+
 GET	/health	Health check endpoint
+
 GET	/api/users	Sample users data
+
 Sample Health Check Response
 {
   "status": "UP"
