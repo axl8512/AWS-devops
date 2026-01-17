@@ -7,18 +7,22 @@ The setup follows a production-ready, scalable, and highly available architectur
 
 Architecture Overview
 Client
+
   │
   ▼
   
 Application Load Balancer (ALB)
+
   │
   ▼
   
 ECS Fargate Service
+
   │
   ▼
   
 Docker Container (Node.js REST API)
+
 
 Tech Stack
 
@@ -66,19 +70,25 @@ Sample Health Check Response
 }
 Docker Configuration
 
+
 Dockerfile
 
 FROM node:18-alpine
 WORKDIR /app
 
+
 COPY package*.json ./
 RUN npm install --only=production
 
+
 COPY . .
+
 
 EXPOSE 3000
 CMD ["node", "app.js"]
 AWS Deployment Workflow
+
+
 1. EC2 (Docker Build Server)
 
 Launch an Ubuntu EC2 instance
@@ -86,6 +96,7 @@ Launch an Ubuntu EC2 instance
 Install Docker
 
 Build the REST API Docker image
+
 
 2. Amazon ECR
 
@@ -95,6 +106,7 @@ Authenticate Docker with ECR
 
 Tag and push the image
 
+
 3. Amazon ECS (Fargate)
 
 Create an ECS task definition
@@ -103,6 +115,7 @@ Configure CPU and memory
 
 Enable CloudWatch logging
 
+
 4. Application Load Balancer
 
 Configure the ALB
@@ -110,6 +123,7 @@ Configure the ALB
 Create a target group
 
 Set the health check path to /health
+
 
 5. ECS Service
 
@@ -123,15 +137,19 @@ Deployment Verification
 
 Copy the Application Load Balancer DNS name
 
+
 Access the API:
 
 http://<ALB-DNS>/health
+
 
 Expected response:
 
 {
   "status": "UP"
 }
+
+
 Key Highlights
 
 Fully serverless container deployment using ECS Fargate
@@ -144,9 +162,13 @@ CloudWatch logging enabled
 
 Load-balanced and fault-tolerant REST API
 
+
+
 License
 
 This project is created for learning and demonstration purposes.
+
+
 
 Author
 
