@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account – Temptify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+    <style>
+    .envelope{
+         min-height: 59vh;
+    background: url("Vintage\ airmail\ envelope\ with\ stamps.png") no-repeat;
+
+    /* IMPORTANT LINE */
+    background-position: top center;
+
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .payment-card {
+            background: transparent;
+border: none;
+box-shadow: none;
+border-radius: 0;}
+ .back-btn1 {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background:transparent;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 14px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}</style>
+</head>
+    <body class="envelope">
+
+<a href="dishes.html" class="back-btn1"></a>
+
+
+<div>
+
+<br><br><br>
+        <center><h2 class="signin-title">Your Order</h2><br></center>
+
+        <div class="payment-card">
+<form class="signin-form">
+            <input type="text" placeholder="delivery Name" required><!-- </form> -->
+    
+</select>
+<textarea 
+    class="address-box" 
+    placeholder="Delivery Address (House no, Street, Landmark, Pincode)"
+    required>
+</textarea>
+
+<div class="quantity-box">
+    <h3 class="qty-label">Quantity</h3>
+    <div class="qty-controls">
+        <button type="button" class="qty-btn" onclick="decreaseQty()">−</button>
+        <input type="text" id="quantity" value="1" readonly>
+        <button type="button" class="qty-btn" onclick="increaseQty()">+</button>
+    </div>
+</div>
+<div class="taste-box">
+    <h3 class="taste-title">Taste Level</h3>
+
+    <div class="taste-item">
+        <label>🌶️ Spice</label>
+        <input type="range" min="0" max="100" value="0"
+               oninput="updateValue(this, 'spiceVal')">
+        <span id="spiceVal">0%</span>
+    </div>
+
+    <div class="taste-item">
+        <label>🍬Sweet</label>
+        <input type="range" min="0" max="100" value="0"
+               oninput="updateValue(this, 'sweetVal')">
+        <span id="sweetVal">0%</span>
+    </div>
+
+    <div class="taste-item">
+        <label>🍋 Tangy</label>
+        <input type="range" min="0" max="100" value="0"
+               oninput="updateValue(this, 'tangyVal')">
+        <span id="tangyVal">0%</span>
+    </div>
+
+    <div class="taste-item">
+        <label>🧂 Salty</label>
+        <input type="range" min="0" max="100" value="0"
+               oninput="updateValue(this, 'saltyVal')">
+        <span id="saltyVal">0%</span>
+    </div>
+</div>
+<div class="price-box">
+    <h3 class="price-title">Price Details</h3>
+
+    <div class="price-row">
+        <span>Total Product Price</span>
+        <span>₹<span id="productPrice">199</span></span>
+    </div>
+
+    <div class="price-row discount">
+        <span>Total Discounts</span>
+        <span>- ₹<span id="discount">0</span></span>
+    </div>
+
+    <hr>
+
+    <div class="price-row total">
+        <span>Order Total</span>
+        <span>₹<span id="orderTotal">199</span></span>
+    </div>
+</div>
+
+<div class="buttons">
+    <button type="button" class="cancel" onclick="window.location.href='dishes.html'">
+    Cancel
+</button>
+
+    <button type="submit" class="yum" formaction="payment.html">Confrim</button>
+
+  </div>
+</form>
+<script>
+const basePrice = parseInt(localStorage.getItem("dishPrice")) || 0;
+const discountPercent = Math.floor(Math.random() * 21) + 5; // 5%–25%
+
+function updateValue(slider, valueId) {
+  document.getElementById(valueId).textContent = slider.value + "%";
+}
+
+function updatePrice() {
+  const qty = parseInt(document.getElementById("quantity").value);
+
+  const productTotal = basePrice * qty;
+  const discount = Math.floor(productTotal * discountPercent / 100);
+  const orderTotal = productTotal - discount;
+
+  document.getElementById("productPrice").textContent = productTotal;
+  document.getElementById("discount").textContent =
+    discount + " (" + discountPercent + "%)";
+  document.getElementById("orderTotal").textContent = orderTotal;
+}
+
+function increaseQty() {
+  let qty = document.getElementById("quantity");
+  qty.value = parseInt(qty.value) + 1;
+  updatePrice();
+}
+
+function decreaseQty() {
+  let qty = document.getElementById("quantity");
+  if (qty.value > 1) {
+    qty.value = parseInt(qty.value) - 1;
+    updatePrice();
+  }
+}
+
+updatePrice(); // initial load
+</script>
+
+
+</body>
+

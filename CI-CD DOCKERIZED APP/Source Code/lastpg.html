@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown to Yum</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffd700;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .center-box {
+            text-align: center;
+        }
+
+        #message {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff5722;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        #gif {
+            display: none;
+            width: 220px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="center-box">
+    <div id="message"><h3>Countdown to Yum 😋</h3></div>
+
+    <img
+        id="gif"
+        src="https://media.tenor.com/osAo2OfrkqsAAAAm/emoji-yummy.webp"
+        alt="Yummy Gif"
+    >
+</div>
+
+<script>
+    // Step 1: Fade out the message after 1.5 seconds
+    setTimeout(() => {
+        document.getElementById("message").style.opacity = "0";
+    }, 1500);
+
+    // Step 2: Hide message, show GIF after fade completes
+    setTimeout(() => {
+        document.getElementById("message").style.display = "none";
+        document.getElementById("gif").style.display = "block";
+    }, 2500);
+
+    // Step 3: Redirect to index.html 3 seconds after GIF appears
+    setTimeout(() => {
+        window.location.href = "muru.html";
+    }, 5500); // 2.5s fade + 3s display
+</script>
+
+</body>
+</html>

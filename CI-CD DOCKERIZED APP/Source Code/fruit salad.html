@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account – Temptify</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cards-section" id="tasteBg">
+   <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.png" width="200px" alt="Temptify Logo">
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="muru.html">Dishes</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+
+            <a href="cart.html">
+    <img src="cart1.png" width="30px" height="30px" alt="Cart">
+</a>
+        </div>
+    </header>
+    </div>
+    <div class="page-center">
+  <div class="food-feature-card">
+
+    <!-- LEFT IMAGE SECTION -->
+    <div class="food-image-wrapper">
+      <div class="curve-bg"></div>
+      <img src="Fruit Salad.jpg" alt="Food Image" class="food-image">
+      <div class="heart-icon" onclick="toggleHeart(this)">
+  🤍
+</div>
+      <span class="price-tag">From ₹79</span>
+    </div>
+
+    <!-- RIGHT CONTENT SECTION -->
+    <div class="food-info">
+      <h2 class="food-name">Fruit Salad</h2>
+      <h4 class="restaurant-name">Healthy Crunch</h4>
+<h4 class="food-desc">Taste Tale😋</h4>
+      <p class="food-desc">
+      Fruit salad tastes like a juicy burst of sunshine, where crisp, sweet,
+       and tangy fruits dance together in refreshing harmony 🍓🍍🍎✨💧
+
+      </p>
+      <h4 class="fun-fact">🌙 Fun Fact</h4>
+      <p class="fun-fact">
+Fruit salad quietly began when traders and travelers mixed
+ fresh fruits to survive long journeys, accidentally discovering that colors, juices, and sweetness taste better together 🍓🍍✨
+
+      </p>
+
+      <button class="taste-btn" onclick="selectDish()">Taste it</button>
+    </div>
+
+  </div>
+</div>
+<script>
+function selectDish() {
+  localStorage.setItem("dishName", "Palaya Sooru");
+  localStorage.setItem("dishPrice", 79); // From ₹66
+  window.location.href = "ordernow1.html";
+}</script>
+<script>
+function toggleHeart(icon) {
+    let dish = {
+        name: "Fruit Salad",
+        price: 79,
+        img: "Fruit Salad.jpg"
+    };
+
+    // Load cart
+    let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // If heart already active -> remove from cart
+    if (icon.classList.contains("active")) {
+        icon.classList.remove("active");
+        icon.innerHTML = "🤍";
+
+        cart = cart.filter(item => item.name !== dish.name);
+        localStorage.setItem("cartItems", JSON.stringify(cart));
+        return;
+    }
+
+    // Else -> add to cart
+    icon.classList.add("active");
+    icon.innerHTML = "❤️";
+
+    cart.push(dish);
+    localStorage.setItem("cartItems", JSON.stringify(cart));
+}
+</script>
+
+</body>

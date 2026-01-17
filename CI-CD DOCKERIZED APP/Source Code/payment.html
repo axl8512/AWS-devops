@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment – Temptify</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        
+ 
+}
+ .wood-bg {
+            min-height: 100vh;
+    background: url("Vintage\ airmail\ envelope\ with\ stamps.png") no-repeat;
+
+    /* IMPORTANT LINE */
+    background-position: top center;
+
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        } 
+
+        .payment-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+
+            
+        }
+
+        .payment-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            
+
+        }
+
+        .payment-option:hover {
+            background: #f9f9f9;
+              border: 3px solid #ffd700;
+        }
+
+        .payment-option input {
+            accent-color: #ffd700;
+            
+        }
+
+        .pay-btn {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 14px;
+            background:green;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .pay-btn:hover {
+            background: #ffd700;
+            
+        }
+
+         .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 900;
+            background-color: red;
+        }  
+    </style>
+</head>
+
+<body>
+
+<a href="muru.html" class="back-btn">🔙</a> 
+
+<div class="wood-bg">
+    <div class="payment-card">
+
+        <h2 class="payment-title">Choose Payment Method</h2>
+
+        <label class="payment-option">
+            <input type="radio" name="payment" checked>
+            💵 Cash on Delivery
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment">
+            📱 UPI (GPay / PhonePe / Paytm)
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment">
+            💳 Credit / Debit Card
+        </label>
+
+        <label class="payment-option">
+            <input type="radio" name="payment">
+            🏦 Net Banking
+        </label>
+<button type="button" class="pay-btn" onclick="window.location.href='lastpg.html'">Yum Yes</button>
+        
+
+    </div>
+</div>
+
+</body>
+</html>
