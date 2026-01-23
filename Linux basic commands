@@ -7,3 +7,7 @@ To see the user and system info
 | whoami | Shows logged-in username | `whoami` |
 | clear / Ctrl + L | Clears the terminal screen | Clears screen |
 | history | Shows previously used commands | `history` |
+
+
+
+Delete file
