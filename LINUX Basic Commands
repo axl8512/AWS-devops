@@ -1,1 +1,40 @@
+Basic commands for the user:
 
+| Command |     What it Does                     |           Example                |
+|---------|--------------------------------------|----------------------------------|
+| pwd     |   Shows current directory            | `pwd` → `/home/user`             |
+| uname -a|   Shows system information           | `uname -a`                       |
+| whoami  |   Shows current logged-in user       | `whoami`                         |
+| clear   |   Clears the terminal screen         | `clear`                          |
+| history |   Shows previously used commands     | `history`                        |
+
+
+
+Directory commands:
+
+| Command    |     What it Does                     |           Example                |
+|------------|--------------------------------------|----------------------------------|
+| ls         |   Lists files and folders            | `ls`                             |
+| ls -a      |   Shows hidden files                 | `ls -a`                          |
+| cd         |   Change directory                   | `cd myfolder`                    |
+| cd ..      |   Move one directory up              | `cd ..`                          |
+| cd ../..   |   Move two directories up            | `cd ../..`                       |
+| cd -       |   Go to previous directory           | `cd -`                           |
+| mkdir      |   Create a new directory             | `mkdir project`                  |
+| mkdir -p   |   Create nested directories          | `mkdir -p a/b/c`                 |
+
+
+
+File commands:
+
+| Command    |     What it Does                     |           Example                |
+|------------|--------------------------------------|----------------------------------|
+| touch      |   Create an empty file               | `touch file.txt`                 |
+| cp         |   Copy a file                        | `cp a.txt b.txt`                 |
+| mv         |   Rename or move a file              | `mv old.txt new.txt`             |
+| rm         |   Delete a file                      | `rm file.txt`                    |
+| rm *.txt   |   Delete all .txt files              | `rm *.txt`                       |
+| rm *       |   Delete all files (dangerous)       | Use carefully                    |
+| cat        |   Display file contents              | `cat file.txt`                   |
+| echo       |   Display text                       | `echo "Hello"`                   |
+| echo >>    |   Append text to a file              | `echo "Hi" >> file.txt`          |
